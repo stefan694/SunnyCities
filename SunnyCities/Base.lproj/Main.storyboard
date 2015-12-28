@@ -36,58 +36,33 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="56G-XG-arE">
-                                                    <rect key="frame" x="13" y="11" width="80" height="21"/>
-                                                    <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lqG-LW-9cm">
-                                                            <rect key="frame" x="0.0" y="0.0" width="80" height="21"/>
-                                                            <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bJ4-6O-AX2">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="21"/>
-                                                                    <subviews>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gew-ad-PpK">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="80" height="21"/>
-                                                                            <subviews>
-                                                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Zic-gp-pq7">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="21"/>
-                                                                                    <subviews>
-                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="City Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jt3-CD-fGI">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="80" height="21"/>
-                                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                                            <nil key="highlightedColor"/>
-                                                                                        </label>
-                                                                                    </subviews>
-                                                                                </stackView>
-                                                                            </subviews>
-                                                                        </stackView>
-                                                                    </subviews>
-                                                                </stackView>
-                                                            </subviews>
-                                                        </stackView>
-                                                    </subviews>
-                                                </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Population" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxj-sH-Hvl">
-                                                    <rect key="frame" x="236" y="0.0" width="81" height="21"/>
+                                                    <rect key="frame" x="198" y="0.0" width="125" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABy-CU-6Q1">
-                                                    <rect key="frame" x="236" y="22" width="66" height="21"/>
+                                                    <rect key="frame" x="198" y="22" width="125" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="City Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdS-Pd-7Ra">
+                                                    <rect key="frame" x="8" y="8" width="192" height="35"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="noinfo" translatesAutoresizingMaskIntoConstraints="NO" id="pUk-A4-xWK">
-                                                    <rect key="frame" x="480" y="0.0" width="50" height="43"/>
+                                                    <rect key="frame" x="357" y="0.0" width="50" height="43"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="coordinates" destination="pxj-sH-Hvl" id="yFG-Ys-qUw"/>
                                             <outlet property="infoImage" destination="pUk-A4-xWK" id="OV4-Tg-GkZ"/>
-                                            <outlet property="nameLabel" destination="jt3-CD-fGI" id="JwO-zB-Dla"/>
+                                            <outlet property="nameLabel" destination="sdS-Pd-7Ra" id="PdW-eM-0YR"/>
                                             <outlet property="population" destination="ABy-CU-6Q1" id="paS-nR-Kr9"/>
                                         </connections>
                                     </tableViewCell>
