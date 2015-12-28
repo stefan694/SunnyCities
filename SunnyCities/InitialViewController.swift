@@ -30,7 +30,8 @@ class InitialViewController: UIViewController, CLLocationManagerDelegate, UITabl
             "south":"\(lastLocation.coordinate.latitude - accurrancy)",
             "east":"\(lastLocation.coordinate.longitude + accurrancy)",
             "west":"\(lastLocation.coordinate.longitude - accurrancy)",
-            "lang":"en",
+            "maxRows":"60",
+            "lang":"fr",
             "username":"stefan694" // geonames username.
             ]) { (json, error) -> Void in
                 if error != nil {
