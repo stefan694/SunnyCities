@@ -7,21 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F86E33591C314F3B006485BC /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86E33581C314F3B006485BC /* SwiftyJSON.swift */; };
+		F8DE1F581C315C4A004A887A /* CityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DE1F571C315C4A004A887A /* CityInfo.swift */; };
+		F8DE1F5D1C316B1F004A887A /* CityInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DE1F5C1C316B1F004A887A /* CityInfoCell.swift */; };
 		F8EB94301C31420100593D04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EB942F1C31420100593D04 /* AppDelegate.swift */; };
-		F8EB94321C31420100593D04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EB94311C31420100593D04 /* ViewController.swift */; };
+		F8EB94321C31420100593D04 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EB94311C31420100593D04 /* InitialViewController.swift */; };
 		F8EB94351C31420100593D04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8EB94331C31420100593D04 /* Main.storyboard */; };
 		F8EB94371C31420100593D04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8EB94361C31420100593D04 /* Assets.xcassets */; };
 		F8EB943A1C31420100593D04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8EB94381C31420100593D04 /* LaunchScreen.storyboard */; };
+		F8EB94421C31426100593D04 /* ErrorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EB94411C31426100593D04 /* ErrorFactory.swift */; };
+		F8EB94461C31433900593D04 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EB94451C31433900593D04 /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F86E33581C314F3B006485BC /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		F8DE1F571C315C4A004A887A /* CityInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityInfo.swift; sourceTree = "<group>"; };
+		F8DE1F5C1C316B1F004A887A /* CityInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityInfoCell.swift; sourceTree = "<group>"; };
 		F8EB942C1C31420100593D04 /* SunnyCities.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SunnyCities.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8EB942F1C31420100593D04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F8EB94311C31420100593D04 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F8EB94311C31420100593D04 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		F8EB94341C31420100593D04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F8EB94361C31420100593D04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8EB94391C31420100593D04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8EB943B1C31420100593D04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8EB94411C31426100593D04 /* ErrorFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorFactory.swift; sourceTree = "<group>"; };
+		F8EB94451C31433900593D04 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = ../Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +45,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F8DE1F561C315C04004A887A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F8DE1F571C315C4A004A887A /* CityInfo.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		F8DE1F591C316AE1004A887A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F8DE1F5C1C316B1F004A887A /* CityInfoCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		F8EB94231C31420100593D04 = {
 			isa = PBXGroup;
 			children = (
@@ -54,14 +80,27 @@
 		F8EB942E1C31420100593D04 /* SunnyCities */ = {
 			isa = PBXGroup;
 			children = (
+				F8DE1F591C316AE1004A887A /* Cells */,
+				F8DE1F561C315C04004A887A /* Models */,
+				F8EB94471C31482700593D04 /* ViewControllers */,
 				F8EB942F1C31420100593D04 /* AppDelegate.swift */,
-				F8EB94311C31420100593D04 /* ViewController.swift */,
 				F8EB94331C31420100593D04 /* Main.storyboard */,
 				F8EB94361C31420100593D04 /* Assets.xcassets */,
+				F8EB94411C31426100593D04 /* ErrorFactory.swift */,
 				F8EB94381C31420100593D04 /* LaunchScreen.storyboard */,
+				F8EB94451C31433900593D04 /* Helpers.swift */,
 				F8EB943B1C31420100593D04 /* Info.plist */,
+				F86E33581C314F3B006485BC /* SwiftyJSON.swift */,
 			);
 			path = SunnyCities;
+			sourceTree = "<group>";
+		};
+		F8EB94471C31482700593D04 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F8EB94311C31420100593D04 /* InitialViewController.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +175,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8EB94321C31420100593D04 /* ViewController.swift in Sources */,
+				F8EB94321C31420100593D04 /* InitialViewController.swift in Sources */,
 				F8EB94301C31420100593D04 /* AppDelegate.swift in Sources */,
+				F8DE1F5D1C316B1F004A887A /* CityInfoCell.swift in Sources */,
+				F8EB94421C31426100593D04 /* ErrorFactory.swift in Sources */,
+				F86E33591C314F3B006485BC /* SwiftyJSON.swift in Sources */,
+				F8DE1F581C315C4A004A887A /* CityInfo.swift in Sources */,
+				F8EB94461C31433900593D04 /* Helpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +331,7 @@
 				F8EB94401C31420100593D04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
