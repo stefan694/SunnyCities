@@ -71,6 +71,12 @@ class InitialViewController: UIViewController, CLLocationManagerDelegate, UITabl
         return cell
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("cityoptions") as! CityOptionsViewController
+        viewController.cityInfo = self.citiesDisplayed[indexPath.row]
+        self.presentViewController(viewController, animated: true, completion: nil)
+    }
+    
     // MARK: - UISearchBar delegate
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         self.citiesDisplayed = [CityInfo]()
