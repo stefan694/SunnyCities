@@ -32,9 +32,6 @@ class CityInfoCell:UITableViewCell {
             
             self.coordinates.text = String(format: "%.02f, %.02f", cityInfo.lat, cityInfo.lng)
             
-            if let _ = cityInfo.wikipedia  {
-                self.infoImage.image = UIImage(named: "info")
-            }
         }
     }
 }

@@ -25,14 +25,11 @@ class InitialViewController: UIViewController, CLLocationManagerDelegate, UITabl
         let lastLocation = locations.last!
         print(lastLocation)
         let accurrancy = 0.2
-        requestJSON("http://api.geonames.org/citiesJSON", params: [
-            "north":"\(lastLocation.coordinate.latitude + accurrancy)",
-            "south":"\(lastLocation.coordinate.latitude - accurrancy)",
-            "east":"\(lastLocation.coordinate.longitude + accurrancy)",
-            "west":"\(lastLocation.coordinate.longitude - accurrancy)",
-            "maxRows":"60",
-            "lang":"fr",
-            "username":"stefan694" // geonames username.
+        requestJSON("http://api.openweathermap.org/data/2.5/find", params: [
+            "lat": "\(lastLocation.coordinate.latitude)",
+            "lon": "\(lastLocation.coordinate.longitude)",
+            "cnt": "50",
+            "APPID":"09328b052302c57443b23a48d0e9fc9f"
             ]) { (json, error) -> Void in
                 if error != nil {
                     print(error?.localizedDescription)
@@ -40,7 +37,7 @@ class InitialViewController: UIViewController, CLLocationManagerDelegate, UITabl
                 }
                 if let status = json["status"].dictionary {
                     print("Error")
-                }else if let cities = json["geonames"].array {
+                }else if let cities = json["list"].array {
                     self.citiesDisplayed = [CityInfo]()
                     self.cities = cities.reduce([CityInfo]()) { (citiesInfo, json) -> [CityInfo] in
                         var citiesCopy = citiesInfo
