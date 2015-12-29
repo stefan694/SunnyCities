@@ -25,7 +25,7 @@ class CityInfoCell:UITableViewCell {
             self._cityInfo = cityInfo
             self.nameLabel.text = cityInfo.name
             self.weather.text = cityInfo.weather
-            self.temperature.text = String(cityInfo.temp)
+            self.temperature.text = "\(cityInfo.temp)°"
             
             if cityInfo.weather == "Clear"  {
                 self.infoImage.image = UIImage(named: "sun")
