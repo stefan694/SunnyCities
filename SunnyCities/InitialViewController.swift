@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 
+
 class InitialViewController: UIViewController, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     
@@ -16,15 +17,13 @@ class InitialViewController: UIViewController, CLLocationManagerDelegate, UITabl
     
     private var cities = [CityInfo]()
     private var citiesDisplayed = [CityInfo]()
-    
-    
+    let backgroundImage = UIImageView(image: UIImage(named: "SunnyBackground"))
     
     var locationManager = CLLocationManager()
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
         let lastLocation = locations.last!
         print(lastLocation)
-        let accurrancy = 0.2
         requestJSON("http://api.openweathermap.org/data/2.5/find", params: [
             "lat": "\(lastLocation.coordinate.latitude)",
             "lon": "\(lastLocation.coordinate.longitude)",
@@ -46,7 +45,6 @@ class InitialViewController: UIViewController, CLLocationManagerDelegate, UITabl
                             citiesCopy.append(cityInfo)
                             self.citiesDisplayed.append(cityInfo)
                         }
-                        // print(citiesCopy[0].cityId)
                         return citiesCopy
                     }
                     
@@ -98,6 +96,8 @@ class InitialViewController: UIViewController, CLLocationManagerDelegate, UITabl
             locationManager.requestWhenInUseAuthorization()
         }
         locationManager.startUpdatingLocation()
+        backgroundImage.contentMode = .ScaleAspectFill
+        tableView.backgroundView = backgroundImage
     }
 
     override func didReceiveMemoryWarning() {

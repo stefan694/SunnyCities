@@ -15,6 +15,8 @@ class CityInfo {
     var name:String!
     var weather: String!
     var temp: Int!
+    var currentUserLat: Double!
+    var currentUserLong: Double!
     var distance: Int!
     
     init?(json:JSON) {
