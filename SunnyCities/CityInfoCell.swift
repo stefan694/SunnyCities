@@ -12,9 +12,9 @@ import UIKit
 class CityInfoCell:UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var coordinates: UILabel!
-    @IBOutlet weak var population: UILabel!
     @IBOutlet weak var infoImage: UIImageView!
+    @IBOutlet weak var weather: UILabel!
+    @IBOutlet weak var temperature: UILabel!
     
     private var _cityInfo:CityInfo!
     var cityInfo:CityInfo {
@@ -24,13 +24,12 @@ class CityInfoCell:UITableViewCell {
         set (cityInfo){
             self._cityInfo = cityInfo
             self.nameLabel.text = cityInfo.name
-            if let population = cityInfo.population {
-                self.population.text = "Pop: \(population)"
-            }else {
-                self.population.text = ""
-            }
+            self.weather.text = cityInfo.weather
+            self.temperature.text = String(cityInfo.temp)
             
-            self.coordinates.text = String(format: "%.02f, %.02f", cityInfo.lat, cityInfo.lng)
+            if cityInfo.weather == "Clear"  {
+                self.infoImage.image = UIImage(named: "sun")
+            }
             
         }
     }

@@ -45,6 +45,7 @@ class InitialViewController: UIViewController, CLLocationManagerDelegate, UITabl
                             citiesCopy.append(cityInfo)
                             self.citiesDisplayed.append(cityInfo)
                         }
+                        // print(citiesCopy[0].cityId)
                         return citiesCopy
                     }
                     
