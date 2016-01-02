@@ -18,7 +18,6 @@ func toUriEncoded(params: [String:String]) -> String {
 }
 
 
-
 func M(completion: () -> () ) {
     dispatch_async(dispatch_get_main_queue(), completion)
 }

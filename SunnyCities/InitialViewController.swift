@@ -47,6 +47,12 @@ class InitialViewController: UIViewController, CLLocationManagerDelegate, UITabl
                         }
                         return citiesCopy
                     }
+                    let citiesCount = self.citiesDisplayed.count
+                    if citiesCount == 0 {
+                        self.displayAlert("Ou fait-il beau ?", message:"Aucune ville fait beau autour de vous")
+                    } else {
+                        self.displayAlert("Ou fait-il beau ?", message:"Il y'a actuellement \(citiesCount) villes ou il fait beau atour de vous")
+                    }
                     
                     M {
                         self.tableView.reloadData()
@@ -56,6 +62,14 @@ class InitialViewController: UIViewController, CLLocationManagerDelegate, UITabl
                 }
         }
     }
+    
+    // alert dialog
+    func displayAlert (title: String, message: String) {
+        let prompt = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        prompt.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+        presentViewController(prompt, animated: true, completion: nil)
+    }
+    
     
     // MARK: - TableView Datasource and delegate
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
@@ -98,6 +112,7 @@ class InitialViewController: UIViewController, CLLocationManagerDelegate, UITabl
         locationManager.startUpdatingLocation()
         backgroundImage.contentMode = .ScaleAspectFill
         tableView.backgroundView = backgroundImage
+        
     }
 
     override func didReceiveMemoryWarning() {
