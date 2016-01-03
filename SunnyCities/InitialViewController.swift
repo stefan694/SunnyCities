@@ -103,6 +103,8 @@ class InitialViewController: UIViewController, CLLocationManagerDelegate, UITabl
                 citiesDisplayed.append(cityInfo)
             }
         }
+        
+        self.citiesDisplayed = self.citiesDisplayed.sort({ $0.distance < $1.distance })
         self.tableView.reloadData()
     }
 
