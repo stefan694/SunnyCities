@@ -26,8 +26,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eqv-eG-IwR">
+                            <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eqv-eG-IwR">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="CME-pU-IEC"/>
+                                </constraints>
                                 <items>
                                     <navigationItem title="Informations sur la ville" id="3FX-10-PCn">
                                         <barButtonItem key="leftBarButtonItem" style="plain" id="mJd-we-tBz">
@@ -43,12 +46,22 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="whp-lN-d5C">
+                            <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="whp-lN-d5C">
                                 <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="whp-lN-d5C" firstAttribute="top" secondItem="Eqv-eG-IwR" secondAttribute="bottom" id="44z-Hm-rKl"/>
+                            <constraint firstItem="Eqv-eG-IwR" firstAttribute="leading" secondItem="45S-3c-88B" secondAttribute="leadingMargin" constant="-20" id="FUv-fX-6iH"/>
+                            <constraint firstItem="YaQ-U5-VCK" firstAttribute="top" secondItem="whp-lN-d5C" secondAttribute="bottom" id="Omz-nk-r7R"/>
+                            <constraint firstItem="whp-lN-d5C" firstAttribute="leading" secondItem="45S-3c-88B" secondAttribute="leadingMargin" constant="-20" id="YrU-JR-I7L"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Eqv-eG-IwR" secondAttribute="trailing" constant="-20" id="jcB-6J-KLI"/>
+                            <constraint firstItem="Eqv-eG-IwR" firstAttribute="top" secondItem="45S-3c-88B" secondAttribute="topMargin" constant="20" id="mkk-jE-b0r"/>
+                            <constraint firstItem="whp-lN-d5C" firstAttribute="top" secondItem="Eqv-eG-IwR" secondAttribute="bottom" id="nSF-kA-MVo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="whp-lN-d5C" secondAttribute="trailing" constant="-20" id="oe2-Wi-mEY"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="webView" destination="whp-lN-d5C" id="ODO-Wc-qVI"/>
