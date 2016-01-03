@@ -6,7 +6,18 @@
 //  Copyright © 2015 Stefan Atkinson. All rights reserved.
 //
 
+import CoreLocation
 import Foundation
+
+extension CLLocationManager{
+    
+    class var sharedManager : CLLocationManager {
+        struct Singleton {
+            static let instance = CLLocationManager()
+        }
+        return Singleton.instance
+    }
+}
 
 func toUriEncoded(params: [String:String]) -> String {
     var records = [String]()

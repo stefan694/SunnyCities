@@ -13,8 +13,8 @@ class CityInfoCell:UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var infoImage: UIImageView!
-    @IBOutlet weak var weather: UILabel!
     @IBOutlet weak var temperature: UILabel!
+    @IBOutlet weak var distance: UILabel!
     
     private var _cityInfo:CityInfo!
     var cityInfo:CityInfo {
@@ -24,7 +24,7 @@ class CityInfoCell:UITableViewCell {
         set (cityInfo){
             self._cityInfo = cityInfo
             self.nameLabel.text = cityInfo.name
-            self.weather.text = cityInfo.weather
+            self.distance.text = "\(cityInfo.distance) km"
             self.temperature.text = "\(cityInfo.temp)°"
             
             if cityInfo.weather == "Clear"  {

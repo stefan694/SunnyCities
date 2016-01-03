@@ -23,7 +23,6 @@ class InitialViewController: UIViewController, CLLocationManagerDelegate, UITabl
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
         let lastLocation = locations.last!
-        print(lastLocation)
         requestJSON("http://api.openweathermap.org/data/2.5/find", params: [
             "lat": "\(lastLocation.coordinate.latitude)",
             "lon": "\(lastLocation.coordinate.longitude)",
@@ -47,12 +46,17 @@ class InitialViewController: UIViewController, CLLocationManagerDelegate, UITabl
                         }
                         return citiesCopy
                     }
+                    
+                    self.citiesDisplayed = self.citiesDisplayed.sort({ $0.distance < $1.distance })
+                    
+                    /*
                     let citiesCount = self.citiesDisplayed.count
                     if citiesCount == 0 {
                         self.displayAlert("Ou fait-il beau ?", message:"Aucune ville fait beau autour de vous")
                     } else {
                         self.displayAlert("Ou fait-il beau ?", message:"Il y'a actuellement \(citiesCount) villes ou il fait beau atour de vous")
                     }
+                    */
                     
                     M {
                         self.tableView.reloadData()
@@ -83,6 +87,7 @@ class InitialViewController: UIViewController, CLLocationManagerDelegate, UITabl
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        
         let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("cityoptions") as! CityOptionsViewController
         viewController.cityInfo = self.citiesDisplayed[indexPath.row]
         self.presentViewController(viewController, animated: true, completion: nil)

@@ -104,20 +104,20 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="weather" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chj-0s-AaR">
-                                                    <rect key="frame" x="177" y="11" width="62" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGt-O4-2Pr">
+                                                    <rect key="frame" x="184" y="11" width="149" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
+                                            <outlet property="distance" destination="fGt-O4-2Pr" id="24R-Ji-Y4F"/>
                                             <outlet property="infoImage" destination="pUk-A4-xWK" id="OV4-Tg-GkZ"/>
                                             <outlet property="nameLabel" destination="sdS-Pd-7Ra" id="PdW-eM-0YR"/>
                                             <outlet property="temperature" destination="MPJ-fk-AbY" id="kkG-Df-RJo"/>
-                                            <outlet property="weather" destination="chj-0s-AaR" id="0Ms-1I-8F0"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
