@@ -19,6 +19,7 @@ extension CLLocationManager{
     }
 }
 
+
 func toUriEncoded(params: [String:String]) -> String {
     var records = [String]()
     for (key, value) in params {

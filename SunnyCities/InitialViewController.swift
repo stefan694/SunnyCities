@@ -17,7 +17,8 @@ class InitialViewController: UIViewController, CLLocationManagerDelegate, UITabl
     
     private var cities = [CityInfo]()
     private var citiesDisplayed = [CityInfo]()
-    let backgroundImage = UIImageView(image: UIImage(named: "SunnyBackground"))
+    
+    var alert: dispatch_once_t = 0
     
     var locationManager = CLLocationManager()
     
@@ -49,21 +50,28 @@ class InitialViewController: UIViewController, CLLocationManagerDelegate, UITabl
                     
                     self.citiesDisplayed = self.citiesDisplayed.sort({ $0.distance < $1.distance })
                     
-                    /*
-                    let citiesCount = self.citiesDisplayed.count
-                    if citiesCount == 0 {
-                        self.displayAlert("Ou fait-il beau ?", message:"Aucune ville fait beau autour de vous")
-                    } else {
-                        self.displayAlert("Ou fait-il beau ?", message:"Il y'a actuellement \(citiesCount) villes ou il fait beau atour de vous")
+                    func displayDialogOnce() { dispatch_once(&self.alert) {
+                        let citiesCount = self.citiesDisplayed.count
+                        if citiesCount == 0 {
+                            self.displayAlert("Ou fait-il beau ?", message:"Aucune ville fait beau autour de vous")
+                        } else {
+                            self.displayAlert("Ou fait-il beau ?", message:"Il y'a actuellement \(citiesCount) villes ou il fait beau atour de vous")
+                        }
+                      }
                     }
-                    */
+                    
                     
                     M {
+                        displayDialogOnce()
                         self.tableView.reloadData()
                     }
+                    
+                    
+                    
                 }else {
                     print("error")
                 }
+                
         }
     }
     
@@ -96,7 +104,7 @@ class InitialViewController: UIViewController, CLLocationManagerDelegate, UITabl
     // change row height
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
     {
-        return 80.0; // custom row height
+        return 70.0; // custom row height
     }
     
     // MARK: - UISearchBar delegate
@@ -123,8 +131,6 @@ class InitialViewController: UIViewController, CLLocationManagerDelegate, UITabl
             locationManager.requestWhenInUseAuthorization()
         }
         locationManager.startUpdatingLocation()
-        backgroundImage.contentMode = .ScaleAspectFill
-        tableView.backgroundView = backgroundImage
         
     }
 
