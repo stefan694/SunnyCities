@@ -87,13 +87,13 @@
                                 <rect key="frame" x="244" y="5" width="112" height="91"/>
                             </imageView>
                             <searchBar contentMode="redraw" misplaced="YES" placeholder="Filtrer la liste des villes" translatesAutoresizingMaskIntoConstraints="NO" id="5LV-4t-6J5">
-                                <rect key="frame" x="0.0" y="102" width="600" height="44"/>
-                                <rect key="contentStretch" x="0.65000000000000002" y="0.0" width="1" height="1"/>
+                                <rect key="frame" x="0.0" y="100" width="600" height="44"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="kYW-h7-jWk"/>
                                 </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="barTintColor" red="0.99762660264968872" green="0.99246805906295776" blue="0.99229484796524048" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Lb5-nJ-ygc"/>
