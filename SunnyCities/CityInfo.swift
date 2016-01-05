@@ -32,7 +32,7 @@ class CityInfo {
                     self.lng = lng
                     self.weather = weather
                     let km = locationManager.location!.distanceFromLocation(CLLocation(latitude: lat, longitude: lng)) / 1000
-                    let numberOfPlaces = 2.0
+                    let numberOfPlaces = 1.0
                     let multiplier = pow(10.0, numberOfPlaces)
                     let roundedKm = round(km * multiplier) / multiplier
                     self.distance = roundedKm

@@ -93,6 +93,12 @@ class InitialViewController: UIViewController, CLLocationManagerDelegate, UITabl
         self.presentViewController(viewController, animated: true, completion: nil)
     }
     
+    // change row height
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    {
+        return 80.0; // custom row height
+    }
+    
     // MARK: - UISearchBar delegate
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         self.citiesDisplayed = [CityInfo]()
