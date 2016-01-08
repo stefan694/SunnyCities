@@ -9,6 +9,7 @@
 import CoreLocation
 import Foundation
 
+// shared location maanager (in orde to reuse in other classes)
 extension CLLocationManager{
     
     class var sharedManager : CLLocationManager {
@@ -19,7 +20,7 @@ extension CLLocationManager{
     }
 }
 
-
+// helper to encode url's
 func toUriEncoded(params: [String:String]) -> String {
     var records = [String]()
     for (key, value) in params {
@@ -29,12 +30,12 @@ func toUriEncoded(params: [String:String]) -> String {
     return records.joinWithSeparator("&")
 }
 
-
+// help to push some code to a background thread
 func M(completion: () -> () ) {
     dispatch_async(dispatch_get_main_queue(), completion)
 }
 
-
+// helper to simplify JSON request
 func requestJSON(urlString:String, params:[String:String] = [:], completion:(JSON, NSError?) -> Void){
     let fullUrlString = "\(urlString)?\(toUriEncoded(params))"
     if let url = NSURL(string: fullUrlString) {

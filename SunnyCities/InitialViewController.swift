@@ -18,18 +18,27 @@ class InitialViewController: UIViewController, CLLocationManagerDelegate, UITabl
     private var cities = [CityInfo]()
     private var citiesDisplayed = [CityInfo]()
     
-    var alert: dispatch_once_t = 0
+    var alert: dispatch_once_t = 0 // initialize alert to 0 in order to display alert only once (see location manager below)
     
     var locationManager = CLLocationManager()
     
+    // Script after location update
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
+        
+        // get the last location
         let lastLocation = locations.last!
-        requestJSON("http://api.openweathermap.org/data/2.5/find", params: [
+        print(lastLocation)
+        
+        // Request for the API
+        // Get 50 cities around the latitude and longitude parameters in metric format (celsius)
+        requestJSON("http://api.openweathermap.org/data/2.5/find", params: [ // see Helpers.swift
             "lat": "\(lastLocation.coordinate.latitude)",
             "lon": "\(lastLocation.coordinate.longitude)",
             "units": "metric",
             "cnt": "50",
             "APPID":"09328b052302c57443b23a48d0e9fc9f"
+            
+            // Display error if request or parameters are wrong
             ]) { (json, error) -> Void in
                 if error != nil {
                     print(error?.localizedDescription)
@@ -37,8 +46,10 @@ class InitialViewController: UIViewController, CLLocationManagerDelegate, UITabl
                 }
                 if let status = json["status"].dictionary {
                     print("Error")
-                }else if let cities = json["list"].array {
+                }else if let cities = json["list"].array { // convert the list of cities to array (response)
                     self.citiesDisplayed = [CityInfo]()
+                    
+                    // Inject array of CityInfo object to cities and append also to citiesDisplayed
                     self.cities = cities.reduce([CityInfo]()) { (citiesInfo, json) -> [CityInfo] in
                         var citiesCopy = citiesInfo
                         if let cityInfo = CityInfo(json: json) {
@@ -48,8 +59,10 @@ class InitialViewController: UIViewController, CLLocationManagerDelegate, UITabl
                         return citiesCopy
                     }
                     
+                    // Sort the cities displayed by distance (ASC)
                     self.citiesDisplayed = self.citiesDisplayed.sort({ $0.distance < $1.distance })
                     
+                    // Function to count the number of ciities in the array and execute the alert once for every instance
                     func displayDialogOnce() { dispatch_once(&self.alert) {
                         let citiesCount = self.citiesDisplayed.count
                         if citiesCount == 0 {
@@ -60,9 +73,9 @@ class InitialViewController: UIViewController, CLLocationManagerDelegate, UITabl
                       }
                     }
                     
-                    
+                    // helper method (see Helpers.swift)
                     M {
-                        displayDialogOnce()
+                        displayDialogOnce() // display alert box
                         self.tableView.reloadData()
                     }
                     
@@ -104,7 +117,7 @@ class InitialViewController: UIViewController, CLLocationManagerDelegate, UITabl
     // change row height
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
     {
-        return 70.0; // custom row height
+        return 60.0; // custom row height
     }
     
     // MARK: - UISearchBar delegate
@@ -117,13 +130,15 @@ class InitialViewController: UIViewController, CLLocationManagerDelegate, UITabl
                 citiesDisplayed.append(cityInfo)
             }
         }
-        
+        // Sort cities after filtering with the sarchbar
         self.citiesDisplayed = self.citiesDisplayed.sort({ $0.distance < $1.distance })
         self.tableView.reloadData()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // location manager configuration
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
         locationManager.distanceFilter = 3000
